@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#164db0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="勉強アプリ">
+<title>勉強アプリ</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<style>
+:root{--nav:#123b83;--blue:#087cff;--green:#00a878;--purple:#8755e8;--orange:#ff8a00;--pink:#f04488;--cyan:#00a6d9;--bg:#edf4ff;--card:#fff;--line:#d4e2f5;--muted:#586d89;--radius:16px;--shadow:0 10px 28px #164b941c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0%,#dcecff 0,transparent 30%),radial-gradient(circle at 100% 25%,#f0e6ff 0,transparent 28%),var(--bg);color:#203047;font-family:system-ui,-apple-system,"Yu Gothic UI","Meiryo",sans-serif}button,input,textarea{font:inherit}button{border:0;cursor:pointer}.screen{display:none}#homeScreen{min-height:100dvh}
+.app-shell{display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100dvh}.sidebar{background:linear-gradient(155deg,#164db0 0%,#102d70 55%,#091d4a 100%);color:white;padding:22px 16px;display:flex;flex-direction:column;gap:20px;position:sticky;top:0;height:100dvh}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 8px 18px;border-bottom:1px solid #ffffff22}.brand-icon{width:46px;height:46px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 3px 12px #001b4a55}.brand-title{font-weight:850;font-size:18px}.nav{display:flex;flex-direction:column;gap:7px}.nav button{width:100%;text-align:left;background:transparent;color:#eaf2ff;padding:13px 14px;border-radius:10px;font-weight:700;display:flex;align-items:center;gap:10px}.nav button:hover,.nav button.active{background:linear-gradient(100deg,#08a6ff,#6655f5);color:#fff;box-shadow:0 5px 16px #051f5555}.sidebar-help{margin-top:auto;color:#d9e7fb;font-size:13px;line-height:1.7;padding:10px 8px}
+.dashboard{min-width:0;padding:28px 30px 40px}.dashboard-inner{max-width:1500px;margin:auto}.hero{margin-bottom:20px}.hero h1{font-size:32px;margin:0 0 6px}.hero p{margin:0;color:var(--muted)}.actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}.action-btn{min-height:58px;border-radius:12px;color:#fff;font-weight:800;box-shadow:0 8px 20px #174b9a30;transition:transform .15s,filter .15s}.action-btn:hover{filter:saturate(1.18) brightness(1.04);transform:translateY(-2px)}.action-blue{background:linear-gradient(135deg,#078bff,#1760ed)}.action-green{background:linear-gradient(135deg,#00c28b,#008f75)}.action-purple{background:linear-gradient(135deg,#a15bff,#7041d8)}.action-orange{background:linear-gradient(135deg,#ffad22,#f36a25)}
+.switch-box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);padding:11px 15px;border-radius:10px;margin-bottom:18px}.switch{position:relative;width:48px;height:27px;display:inline-block}.switch input{display:none}.slider{position:absolute;inset:0;background:#b9c4d0;border-radius:20px}.slider:before{content:"";position:absolute;width:21px;height:21px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}.switch input:checked+.slider{background:#2878d0}.switch input:checked+.slider:before{transform:translateX(21px)}
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:18px;align-items:start}.file-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.file-box,.progress-card,.tip-card,.editor-card,.study-question,.answer-area,.settings-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.file-box{padding:20px}.section-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:12px}.section-head h2{font-size:19px;margin:0}.section-link{color:var(--blue);font-size:13px;font-weight:750;cursor:pointer}.file-item{display:flex;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #edf1f6}.file-item:last-child{border:0}.file-item-name{flex:1;min-width:0;padding:9px 10px;border-radius:9px;font-weight:750;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.file-item-name:hover{background:#f2f6fb;color:var(--blue)}.small-btn{background:#edf3fa;color:#29425f;border:1px solid #d8e2ee;border-radius:7px;padding:8px 9px;font-size:11px;font-weight:700;white-space:nowrap}.empty{text-align:center;color:#8a98aa;padding:30px 10px}.progress-card{background:linear-gradient(145deg,#0756c9 0%,#5330a8 55%,#102f70 100%);color:#fff;padding:22px;min-height:235px}.progress-card h3{margin:0 0 18px;font-size:18px}.progress-ring{width:135px;height:135px;border-radius:50%;margin:0 auto 17px;background:conic-gradient(#19c7ff var(--progress,0deg),#a45bff 55%,#24476f 0);display:grid;place-items:center}.progress-center{width:112px;height:112px;border-radius:50%;background:#0b2445;display:flex;flex-direction:column;align-items:center;justify-content:center}.progress-center small{font-size:12px;color:#c5d7ed}.progress-center strong{font-size:19px}.progress-reset{width:100%;padding:10px;border-radius:8px;background:#ffffff18;color:white;font-weight:700}.tip-card{padding:18px;margin-top:18px}.tip-card p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:0}
+.header{background:#fff;padding:17px 25px;border-bottom:1px solid var(--line);text-align:center}.header h1{margin:0;font-size:22px}.main{padding:25px;max-width:1200px;margin:auto}.topbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin-bottom:18px}.title{font-size:22px;font-weight:850;text-align:center}.topbar button,.main button,.study-main button{padding:11px 15px;border-radius:9px;background:#18324f;color:#fff;font-weight:700}.sort-button{background:#34516f!important}.danger{background:#a93e46!important}.editor-card{padding:22px}.mistake-header,.mistake-row{display:grid;grid-template-columns:minmax(0,1fr) 130px;gap:10px;align-items:center}.mistake-header{font-weight:800;color:#53647a;padding:0 0 10px}.mistake-row{padding:9px 0;border-top:1px solid var(--line)}.text-input{width:100%;padding:12px;border:1px solid #ccd7e3;border-radius:9px;background:#fff;color:#203047;min-width:0}.count-input{text-align:center}.add-button{margin-top:15px;background:var(--blue)!important}.question-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:10px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}.question-field{display:flex;flex-direction:column;gap:8px}.question-field textarea{resize:vertical}.question-image-hint{font-size:12px;color:var(--muted)}.question-image-preview{max-width:min(100%,320px);max-height:220px;object-fit:contain;border:1px solid var(--line);border-radius:8px}.delete-button{background:#a93e46!important;padding:9px 12px!important}.delete-file-button{background:#a93e46!important}
+.study-screen{min-height:100dvh}.study-main{min-height:calc(100dvh - 62px);display:flex;flex-direction:column;padding:20px;max-width:900px;margin:auto;width:100%}.study-question{padding:30px;text-align:center;min-height:180px;display:flex;flex-direction:column;justify-content:center}.study-label{font-size:14px;color:var(--muted);margin-bottom:12px}.study-problem{font-size:36px;font-weight:850;white-space:pre-wrap;overflow-wrap:anywhere}.study-problem-image{max-width:100%;max-height:300px;object-fit:contain;margin:15px auto 0}.progress{font-size:13px;color:var(--muted);margin-top:12px}.answer-area{margin-top:18px;padding:18px}#writingCanvas{width:100%;height:260px;display:block;border:2px dashed #b9c8d8;border-radius:10px;background:#fff;touch-action:none;user-select:none}.clear-button{margin-top:8px;background:#60758c!important}.typed-answer-row{display:flex;gap:8px}.typed-answer{flex:1}.check-answer-button{background:#2878d0!important;white-space:nowrap}.answer-feedback{min-height:25px;margin-top:8px;font-weight:750}.answer-feedback.correct{color:#168451}.answer-feedback.incorrect{color:#bd4a4a}.answer-display{display:none;margin-top:12px;padding:14px;background:linear-gradient(120deg,#e1f2ff,#f0e8ff);border:1px solid #c8dcff;border-radius:9px;font-size:21px;font-weight:850;white-space:pre-wrap}.study-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.study-buttons button{min-height:50px}.answer-button{background:var(--purple)!important}.next-button{background:var(--blue)!important}.learned-button{background:var(--green)!important}
+.settings-main{max-width:850px}.settings-card{padding:20px;margin-bottom:16px}.settings-card h2{margin-top:0}.settings-row{display:flex;align-items:center;justify-content:space-between;gap:15px}.settings-row p,.settings-card p{color:var(--muted);font-size:14px;line-height:1.6}.settings-actions{display:flex;gap:8px;flex-wrap:wrap}.settings-action{background:#18324f!important}.modal-bg{display:none;position:fixed;inset:0;background:#071a3588;align-items:center;justify-content:center;z-index:50;padding:20px}.modal{background:#fff;border-radius:16px;padding:25px;width:min(90%,420px);text-align:center;box-shadow:0 20px 60px #0003}.modal h2{margin-top:0}.modal-buttons{display:flex;gap:10px;justify-content:center}.modal-buttons button{flex:1;padding:12px;border-radius:9px;background:#18324f;color:#fff;font-weight:750}.subject-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:15px}.subject-buttons button{min-height:52px;border-radius:10px;background:linear-gradient(135deg,#087cff,#6952e8);color:#fff;font-weight:800}.subject-buttons button:nth-child(2){background:linear-gradient(135deg,#ff9b26,#ef5d35)}.subject-buttons button:nth-child(3){background:linear-gradient(135deg,#00b8a0,#087bbd)}.subject-buttons button:nth-child(4){background:linear-gradient(135deg,#00a8e8,#315ce8)}.subject-buttons button:nth-child(5){background:linear-gradient(135deg,#35bd69,#078c73)}.subject-buttons small{font-size:10px}.modal-cancel{margin-top:12px;background:#e8edf3!important;color:#30445b!important}
+@media(max-width:1050px){.app-shell{grid-template-columns:190px 1fr}.dashboard{padding:22px}.actions{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:1fr}.file-columns{grid-template-columns:1fr 1fr}.progress-card{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:15px}.progress-card h3{grid-column:1/-1}.tip-card{display:none}}
+@media(max-width:760px){.app-shell{display:block}.sidebar{height:auto;position:relative;padding:10px 12px;gap:8px}.brand{padding:3px 4px 9px}.brand-icon{width:38px;height:38px}.brand-title{font-size:16px}.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.nav button{justify-content:center;text-align:center;padding:9px 4px;font-size:12px;gap:4px}.sidebar-help{display:none}.dashboard{padding:14px 12px 28px}.hero h1{font-size:26px}.actions{gap:8px}.action-btn{font-size:12px;min-height:52px}.file-columns{grid-template-columns:1fr}.progress-card{display:block}.main{padding:14px 12px}.topbar{grid-template-columns:auto 1fr;gap:8px}.topbar .title{grid-column:1/-1;grid-row:1;text-align:center;font-size:19px}.topbar button:last-child{justify-self:end}.question-row{grid-template-columns:1fr}.mistake-header,.mistake-row{grid-template-columns:minmax(0,1fr) 95px}.study-main{padding:12px}.study-question{padding:20px 12px}.study-problem{font-size:28px}.typed-answer-row{flex-direction:column}.study-buttons{gap:6px}.study-buttons button{font-size:12px;padding:10px 5px}.settings-row{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div id="homeScreen">
+ <div class="app-shell">
+  <aside class="sidebar">
+   <div class="brand"><img class="brand-icon" src="./icon-192.png" alt="勉強アプリのアイコン"><div class="brand-title">勉強アプリ</div></div>
+   <nav class="nav">
+    <button id="navHome" class="active" onclick="setSection('all')">ホーム</button>
+    <button id="navKanji" onclick="setSection('漢字')">漢字</button>
+    <button id="navHistory" onclick="setSection('歴史')">歴史</button>
+    <button id="navGeography" onclick="setSection('地理')">地理</button>
+    <button id="navScienceA" onclick="setSection('理科A')">理科A</button>
+    <button id="navScienceB" onclick="setSection('理科B')">理科B</button>
+    <button onclick="openSettings()">設定</button>
+   </nav>
+   <div class="sidebar-help">ⓘ 使い方<br>教科を選んで、問題やデータを作成して学習しよう。</div>
+  </aside>
+  <main class="dashboard"><div class="dashboard-inner">
+   <section class="hero"><h1 id="pageTitle">ホーム</h1><p id="pageDescription">漢字・歴史・地理・理科A・理科Bの学習データをまとめて管理できます。</p></section>
+   <div class="actions">
+    <button class="action-btn action-blue" onclick="createData()">＋ 新規データ作成</button>
+    <button class="action-btn action-green" onclick="createQuestion()">＋ 新規問題作成</button>
+    <button class="action-btn action-purple" onclick="exportData()">↓ 全教科のデータを保存</button>
+    <button class="action-btn action-orange" onclick="document.getElementById('importFile').click()">↑ データを読み込む</button>
+    <input id="importFile" type="file" accept=".json,application/json" hidden onchange="importData(event)">
+   </div>
+   <div class="switch-box"><strong>「覚えた」ボタン機能</strong><label class="switch"><input id="learnedSwitch" type="checkbox" onchange="toggleLearnedFeature()"><span class="slider"></span></label><span id="switchText">ON</span></div>
+   <div class="dashboard-grid">
+    <div class="file-columns">
+     <section class="file-box"><div class="section-head"><h2>▤ データ</h2><span class="section-link" onclick="createData()">＋ 新規作成</span></div><div id="dataList" class="file-list"></div></section>
+     <section class="file-box"><div class="section-head"><h2>□ 問題</h2><span class="section-link" onclick="createQuestion()">＋ 新規作成</span></div><div id="questionList" class="file-list"></div></section>
+    </div>
+    <aside><section class="progress-card"><h3>学習の進捗</h3><div class="progress-ring" id="progressRing"><div class="progress-center"><small id="progressLabel">覚えた数</small><strong id="progressCount">0 / 0</strong></div></div><button class="progress-reset" onclick="resetAllLearnedRecords()">覚えた記録をリセット</button></section><section class="tip-card"><h3>？ 学習のコツ</h3><p>毎日少しずつ続けることが、上達への近道です。</p></section></aside>
+   </div>
+  </div></main>
+ </div>
+</div>
+
+<div id="dataEditScreen" class="screen">
+ <header class="header"><h1>データ編集</h1></header><main class="main">
+  <div class="topbar"><button onclick="goHome()">← ホームへ戻る</button><div class="title" id="editDataName">データ編集</div><button class="sort-button" onclick="sortMistakes()">回数順</button></div>
+  <section class="editor-card"><div class="mistake-header"><div id="dataFieldLabel">項目</div><div>回数</div></div><div id="mistakeList"></div><button class="add-button" id="addDataItemButton" onclick="addMistake()">項目を追加</button><button class="delete-file-button danger" style="margin:12px 0 0 8px" onclick="deleteDataFile()">このデータを削除</button></section>
+ </main>
+</div>
+
+<div id="questionEditScreen" class="screen">
+ <header class="header"><h1>問題編集</h1></header><main class="main">
+  <div class="topbar"><button onclick="goHome()">← ホームへ戻る</button><div class="title" id="editQuestionName">問題編集</div><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end"><button onclick="startStudy()">問題を解く</button><button class="delete-file-button danger" onclick="deleteQuestionFile()">問題を削除</button></div></div>
+  <section class="editor-card"><div id="questionRows"></div><button class="add-button" onclick="addQuestionRow()">問題を追加</button></section>
+ </main>
+</div>
+
+<div id="settingsScreen" class="screen">
+ <header class="header"><h1>設定</h1></header><main class="main settings-main">
+  <div class="topbar"><button onclick="goHome()">← ホームへ戻る</button><div class="title">アプリの設定</div><div></div></div>
+  <section class="settings-card"><h2>学習設定</h2><div class="settings-row"><div><strong>「覚えた」ボタン機能</strong><p>ONにすると、答えを見て「覚えた」を押すことで、覚えた回数を記録します。</p></div><label class="switch"><input id="settingsLearnedSwitch" type="checkbox" onchange="toggleLearnedFeatureFromSettings()"><span class="slider"></span></label></div></section>
+  <section class="settings-card"><h2>学習記録</h2><p>現在選択中の教科の「覚えた」記録だけをリセットします。</p><button class="settings-action danger" onclick="resetAllLearnedRecords()">覚えた記録をリセット</button></section>
+  <section class="settings-card"><h2>バックアップ</h2><p>漢字・歴史・地理・理科A・理科Bの全教科をまとめてJSONファイルとして保存・読み込みできます。</p><div class="settings-actions"><button class="settings-action" onclick="exportData()">データを保存</button><button class="settings-action" onclick="document.getElementById('importFile').click()">データを読み込む</button></div></section>
+ </main>
+</div>
+
+<div id="studyScreen" class="screen study-screen">
+ <header class="header"><h1>学習</h1></header><main class="study-main">
+  <div class="topbar"><button onclick="closeStudy()">← 戻る</button><div class="title" id="studyTitle">問題を解く</div><div></div></div>
+  <section class="study-question"><div class="study-label">問題</div><div id="studyProblem" class="study-problem">---</div><img id="studyProblemImage" class="study-problem-image" alt="問題の画像" style="display:none"><div id="studyProgress" class="progress"></div></section>
+  <section class="answer-area">
+   <div id="kanjiAnswerArea"><canvas id="writingCanvas"></canvas><button class="clear-button" onclick="clearCanvas()">書き直す</button></div>
+   <div id="typedAnswerArea" style="display:none"><label for="typedAnswer" class="study-label">自分の答えを入力</label><div class="typed-answer-row"><input id="typedAnswer" class="text-input typed-answer" type="text" autocomplete="off" placeholder="答えを入力してください" onkeydown="if(event.key==='Enter')checkAnswer()"><button class="check-answer-button" onclick="checkAnswer()">答え合わせ</button></div><div id="answerFeedback" class="answer-feedback" aria-live="polite"></div></div>
+   <div id="answerDisplay" class="answer-display"></div><div id="manualWrongFeedback" class="answer-feedback incorrect" aria-live="polite"></div>
+  </section>
+  <div class="study-buttons"><button class="answer-button" onclick="showAnswer()">答えを見る</button><button class="next-button" onclick="nextStudyQuestion()">次の問題</button><button class="learned-button" id="learnedButton" onclick="markLearned()">覚えた</button><button class="delete-button" id="wrongButton" onclick="recordWrongAnswer()">間違えた</button></div>
+ </main>
+</div>
+
+<div id="choiceModal" class="modal-bg"><div class="modal"><h2>どちらにしますか？</h2><div class="modal-buttons"><button onclick="chooseSolve()">問題を解く</button><button onclick="chooseEdit()">編集する</button></div></div></div>
+<div id="createSubjectModal" class="modal-bg"><div class="modal"><h2 id="createSubjectTitle">教科を選択</h2><p>作成する教科を選んでください。</p><div class="subject-buttons"><button onclick="selectCreateSubject('漢字')">漢字</button><button onclick="selectCreateSubject('歴史')">歴史</button><button onclick="selectCreateSubject('地理')">地理</button><button onclick="selectCreateSubject('理科A')">理科A<br><small>科学・物理</small></button><button onclick="selectCreateSubject('理科B')">理科B<br><small>生物</small></button></div><button class="modal-cancel" onclick="cancelCreateSubject()">キャンセル</button></div></div>
+
+<script>
+const KEYS={漢字:"kanjiStudyAppDataV2",歴史地理:"historyStudyAppDataV1"};
+const APP_TYPE="unifiedStudyAppV1";
+const blank=()=>({dataFiles:[],questionFiles:[],learnedFeature:true});
+let section="all",pendingType=null,currentDataIndex=null,currentQuestionIndex=null,studyPool=[],studyCurrent=null,studyShownAnswer=false;
+let stores={漢字:loadStore("漢字"),歴史地理:loadStore("歴史地理")};
+let canvas=null,ctx=null,drawing=false,lastX=0,lastY=0;
+function loadStore(key){try{const d=JSON.parse(localStorage.getItem(KEYS[key]));if(d&&Array.isArray(d.dataFiles)&&Array.isArray(d.questionFiles)){d.learnedFeature=d.learnedFeature!==false;return d;}}catch(e){}return blank();}
+function domain(){return section==="漢字"?"漢字":"歴史地理";}
+function store(){return stores[domain()];}
+function makeId(){return "q_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,8);}
+function ensureQuestionDataFile(qf){
+  if(!qf.id)qf.id=makeId();
+  let linked=store().dataFiles.find(d=>d.linkedQuestionId===qf.id);
+  if(!linked){linked={id:makeId(),name:qf.name+"の間違いデータ",subject:qf.subject||section,linkedQuestionId:qf.id,mistakes:[]};store().dataFiles.push(linked);}
+  if(!Array.isArray(linked.mistakes))linked.mistakes=[];
+  return linked;
+}
+function recordQuestionMistake(q){
+  if(currentQuestionIndex===null)return;
+  const qf=store().questionFiles[currentQuestionIndex];if(!qf)return;
+  const d=ensureQuestionDataFile(qf);if(!q.id)q.id=makeId();
+  let item=d.mistakes.find(m=>m.questionId===q.id);
+  const label=(q.problem||q.question||"").trim()||(q.image?"画像の問題":"問題");
+  if(!item){item={questionId:q.id,kanji:label,count:0};d.mistakes.push(item);}
+  item.kanji=label;item.count=(item.count||0)+1;saveData();
+}
+function visibleSubject(file){return domain()==="漢字"?"漢字":(file.subject==="地理"?"地理":"歴史");}
+function saveStore(key=domain()){localStorage.setItem(KEYS[key],JSON.stringify(stores[key]));}
+function saveData(){saveStore();}
+function showOnly(id){["homeScreen","dataEditScreen","questionEditScreen","studyScreen","settingsScreen"].forEach(x=>document.getElementById(x).style.display=x===id?"block":"none");}
+function setSection(next){section=next;currentDataIndex=null;currentQuestionIndex=null;showOnly("homeScreen");document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));const nav={all:"navHome",漢字:"navKanji",歴史:"navHistory",地理:"navGeography",理科A:"navScienceA",理科B:"navScienceB"}[next];if(nav)document.getElementById(nav).classList.add("active");document.getElementById("pageTitle").textContent=next==="all"?"ホーム":next;document.getElementById("pageDescription").textContent=next==="all"?"漢字・歴史・地理・理科の学習データをまとめて管理できます。":next==="理科A"?"科学・物理のデータや問題を作成して学習しましょう。":next==="理科B"?"生物のデータや問題を作成して学習しましょう。":next+"のデータ・問題を管理して学習しましょう。";renderLists();}
+function goHome(){saveData();showOnly("homeScreen");currentDataIndex=null;currentQuestionIndex=null;renderLists();}
+function featureTargets(){return section==="all"?[stores.漢字,stores.歴史地理]:[store()];}
+function featureIsOn(){return featureTargets().every(s=>s.learnedFeature!==false);}
+function renderLists(){displayDataFiles();displayQuestionFiles();updateDashboardStats();document.getElementById("learnedSwitch").checked=featureIsOn();document.getElementById("switchText").textContent=featureIsOn()?"ON":"OFF";document.getElementById("learnedButton").style.display=featureIsOn()?"block":"none";}
+function openSettings(){document.getElementById("settingsLearnedSwitch").checked=featureIsOn();showOnly("settingsScreen");}
+function setLearnedFeature(value){featureTargets().forEach(s=>s.learnedFeature=value);saveStore("漢字");saveStore("歴史地理");document.getElementById("learnedSwitch").checked=featureIsOn();document.getElementById("settingsLearnedSwitch").checked=featureIsOn();document.getElementById("switchText").textContent=featureIsOn()?"ON":"OFF";updateDashboardStats();document.getElementById("learnedButton").style.display=featureIsOn()?"block":"none";}
+function toggleLearnedFeature(){setLearnedFeature(document.getElementById("learnedSwitch").checked);}
+function toggleLearnedFeatureFromSettings(){setLearnedFeature(document.getElementById("settingsLearnedSwitch").checked);}
+function createData(){if(section!=="all"){createForSubject("data",section);return;}openCreateSubject("data");}
+function createQuestion(){if(section!=="all"){createForSubject("question",section);return;}openCreateSubject("question");}
+function openCreateSubject(type){pendingType=type;document.getElementById("createSubjectTitle").textContent=type==="data"?"どの教科のデータを作りますか？":"どの教科の問題を作りますか？";document.getElementById("createSubjectModal").style.display="flex";}
+function cancelCreateSubject(){document.getElementById("createSubjectModal").style.display="none";pendingType=null;}
+function selectCreateSubject(subject){const type=pendingType;cancelCreateSubject();createForSubject(type,subject);}
+function createForSubject(type,subject){if(subject!==section)setSection(subject);const s=store();if(type==="data"){const name=prompt(subject+"のデータ名を入力してください");if(!name||!name.trim())return;s.dataFiles.push({id:makeId(),name:name.trim(),subject:subject,mistakes:[]});}else{const name=prompt(subject+"の問題名を入力してください");if(!name||!name.trim())return;const qf={id:makeId(),name:name.trim(),subject:subject,questions:[]};s.questionFiles.push(qf);ensureQuestionDataFile(qf);}saveData();renderLists();}
+function inCurrent(file){if(section==="all")return true;if(section==="漢字")return true;return (file.subject||"歴史")===section;}
+function displayDataFiles(){const list=document.getElementById("dataList");list.innerHTML="";let files=[];if(section==="all"){for(const key of ["漢字","歴史地理"])stores[key].dataFiles.forEach((d,i)=>files.push({d,i,key}));}else files=store().dataFiles.map((d,i)=>({d,i,key:domain()})).filter(x=>inCurrent(x.d));if(!files.length){list.innerHTML='<div class="empty">データファイルはありません</div>';return;}files.forEach(({d,i,key})=>{const item=document.createElement("div");item.className="file-item";const name=document.createElement("div");name.className="file-item-name";name.textContent=(section==="all"?(key==="漢字"?"【漢字】":"【"+(d.subject||"歴史")+"】"):"")+d.name;name.onclick=()=>{if(section==="all")setSection(key==="漢字"?"漢字":(d.subject||"歴史"));openDataEdit(i);};const rename=document.createElement("button");rename.className="small-btn";rename.textContent="名前変更";rename.onclick=()=>{if(section==="all")setSection(key==="漢字"?"漢字":(d.subject||"歴史"));renameData(i);};item.append(name,rename);list.append(item);});}
+function displayQuestionFiles(){const list=document.getElementById("questionList");list.innerHTML="";let files=[];if(section==="all"){for(const key of ["漢字","歴史地理"])stores[key].questionFiles.forEach((q,i)=>files.push({q,i,key}));}else files=store().questionFiles.map((q,i)=>({q,i,key:domain()})).filter(x=>inCurrent(x.q));if(!files.length){list.innerHTML='<div class="empty">問題ファイルはありません</div>';return;}files.forEach(({q,i,key})=>{const item=document.createElement("div");item.className="file-item";const name=document.createElement("div");name.className="file-item-name";name.textContent=(section==="all"?(key==="漢字"?"【漢字】":"【"+(q.subject||"歴史")+"】"):"")+q.name;name.onclick=()=>{if(section==="all")setSection(key==="漢字"?"漢字":(q.subject||"歴史"));openQuestionChoice(i);};const controls=document.createElement("div");controls.style.display="flex";controls.style.gap="5px";const rename=document.createElement("button");rename.className="small-btn";rename.textContent="名前変更";rename.onclick=()=>{if(section==="all")setSection(key==="漢字"?"漢字":(q.subject||"歴史"));renameQuestion(i);};const reset=document.createElement("button");reset.className="small-btn";reset.textContent="記録リセット";reset.onclick=()=>{if(section==="all")setSection(key==="漢字"?"漢字":(q.subject||"歴史"));resetLearnedRecords(i);};controls.append(rename,reset);item.append(name,controls);list.append(item);});}
+function renameData(i){const d=store().dataFiles[i];const n=prompt("新しいデータ名",d.name);if(n===null)return;if(!n.trim())return alert("名前を入力してください。");d.name=n.trim();saveData();displayDataFiles();if(currentDataIndex===i)document.getElementById("editDataName").textContent=d.name;}
+function renameQuestion(i){const q=store().questionFiles[i];const n=prompt("新しい問題名",q.name);if(n===null)return;if(!n.trim())return alert("名前を入力してください。");q.name=n.trim();saveData();displayQuestionFiles();if(currentQuestionIndex===i)document.getElementById("editQuestionName").textContent=q.name;}
+function resetLearnedRecords(i){const qf=store().questionFiles[i];if(!qf.questions.some(q=>(q.learnedCount||0)>0))return alert("覚えた記録はありません。");if(!confirm("「"+qf.name+"」の覚えた記録を0回に戻しますか？"))return;qf.questions.forEach(q=>q.learnedCount=0);saveData();displayQuestionFiles();updateDashboardStats();}
+function openDataEdit(i){currentDataIndex=i;document.getElementById("editDataName").textContent=store().dataFiles[i].name;document.getElementById("dataFieldLabel").textContent=domain()==="漢字"?"間違えた漢字":"用語・人物・地名";document.getElementById("addDataItemButton").textContent=domain()==="漢字"?"漢字を追加":"項目を追加";showOnly("dataEditScreen");displayMistakes();}
+function displayMistakes(){const list=document.getElementById("mistakeList");list.innerHTML="";const arr=store().dataFiles[currentDataIndex].mistakes||[];arr.forEach(m=>{const row=document.createElement("div");row.className="mistake-row";const k=document.createElement("input");k.className="text-input";k.value=m.kanji||"";k.placeholder=domain()==="漢字"?"例：憂鬱":"例：鎌倉幕府、関東地方";k.oninput=()=>{m.kanji=k.value;saveData();};const c=document.createElement("input");c.className="text-input count-input";c.type="number";c.min="0";c.value=m.count||0;c.oninput=()=>{m.count=Math.max(0,Number(c.value)||0);saveData();};row.append(k,c);list.append(row);});}
+function addMistake(){store().dataFiles[currentDataIndex].mistakes.push({kanji:"",count:0});saveData();displayMistakes();}
+function sortMistakes(){store().dataFiles[currentDataIndex].mistakes.sort((a,b)=>(b.count||0)-(a.count||0));saveData();displayMistakes();}
+function deleteDataFile(){const d=store().dataFiles[currentDataIndex];if(!d)return;if(!confirm("「"+d.name+"」を削除しますか？\n元に戻せません。"))return;store().dataFiles.splice(currentDataIndex,1);saveData();goHome();}
+function openQuestionChoice(i){currentQuestionIndex=i;document.getElementById("choiceModal").style.display="flex";}
+function closeModal(){document.getElementById("choiceModal").style.display="none";}
+function chooseEdit(){closeModal();openQuestionEdit(currentQuestionIndex);}
+function chooseSolve(){closeModal();startStudyFor(currentQuestionIndex);}
+function openQuestionEdit(i){currentQuestionIndex=i;document.getElementById("editQuestionName").textContent=store().questionFiles[i].name;showOnly("questionEditScreen");displayQuestionRows();}
+function displayQuestionRows(){const list=document.getElementById("questionRows");list.innerHTML="";const qs=store().questionFiles[currentQuestionIndex].questions;if(!qs.length){list.innerHTML='<div class="empty">問題がありません。「問題を追加」から作成してください。</div>';return;}qs.forEach((q,i)=>{if(typeof q.learnedCount!=="number")q.learnedCount=0;if(typeof q.problem!=="string")q.problem=q.question||"";if(typeof q.answer!=="string")q.answer="";if(typeof q.image!=="string")q.image="";const row=document.createElement("div");row.className="question-row";const pf=document.createElement("div");pf.className="question-field";const p=document.createElement(domain()==="漢字"?"input":"textarea");p.className="text-input";p.placeholder="問題";if(p.tagName==="TEXTAREA")p.rows=3;p.value=q.problem;p.oninput=()=>{q.problem=p.value;if(domain()==="漢字")q.question=p.value;saveData();};pf.append(p);let af=document.createElement("div");af.className="question-field";if(domain()!=="漢字"){const hint=document.createElement("div");hint.className="question-image-hint";hint.textContent="問題文と画像を組み合わせられます。";const imageInput=document.createElement("input");imageInput.type="file";imageInput.accept="image/*";const preview=document.createElement("img");preview.className="question-image-preview";preview.alt="画像プレビュー";preview.style.display=q.image?"block":"none";if(q.image)preview.src=q.image;const remove=document.createElement("button");remove.className="small-btn";remove.textContent="画像を削除";remove.style.display=q.image?"inline-block":"none";imageInput.onchange=()=>{const f=imageInput.files[0];if(!f)return;if(!f.type.startsWith("image/")||f.size>5*1024*1024){alert("画像は5MB以下の画像ファイルを選んでください。");imageInput.value="";return;}const r=new FileReader();r.onload=()=>{q.image=String(r.result);preview.src=q.image;preview.style.display="block";remove.style.display="inline-block";saveData();};r.readAsDataURL(f);};remove.onclick=()=>{q.image="";preview.removeAttribute("src");preview.style.display="none";remove.style.display="none";imageInput.value="";saveData();};af.append(hint,imageInput,preview,remove);}const a=document.createElement("input");a.className="text-input";a.placeholder="答え";a.value=q.answer;a.oninput=()=>{q.answer=a.value;saveData();};af.append(a);const del=document.createElement("button");del.className="delete-button";del.textContent="削除";del.onclick=()=>{if(confirm("この問題を削除しますか？")){const removed=qs[i];qs.splice(i,1);const qf=store().questionFiles[currentQuestionIndex];const linked=store().dataFiles.find(d=>d.linkedQuestionId===qf.id);if(linked&&removed.id)linked.mistakes=linked.mistakes.filter(m=>m.questionId!==removed.id);saveData();displayQuestionRows();}};row.append(pf,af,del);list.append(row);});}
+function addQuestionRow(){const q={id:makeId(),problem:"",question:"",answer:"",image:"",learnedCount:0};store().questionFiles[currentQuestionIndex].questions.push(q);ensureQuestionDataFile(store().questionFiles[currentQuestionIndex]);saveData();displayQuestionRows();}
+function deleteQuestionFile(){const q=store().questionFiles[currentQuestionIndex];if(!q)return;if(!confirm("「"+q.name+"」を削除しますか？"))return;const qf=store().questionFiles[currentQuestionIndex];store().questionFiles.splice(currentQuestionIndex,1);if(qf.id)store().dataFiles=store().dataFiles.filter(d=>d.linkedQuestionId!==qf.id);saveData();goHome();}
+function startStudy(){startStudyFor(currentQuestionIndex);}
+function startStudyFor(i){currentQuestionIndex=i;const qs=store().questionFiles[i].questions;ensureQuestionDataFile(store().questionFiles[i]);qs.forEach(q=>{if(!q.id)q.id=makeId();if(typeof q.learnedCount!=="number")q.learnedCount=0;if(!q.problem)q.problem=q.question||"";});saveData();studyPool=qs.filter(q=>(q.problem||"").trim()!==""||(domain()!=="漢字"&&(q.image||"")!=="")).filter(q=>(q.answer||"").trim()!==""&&(!store().learnedFeature||q.learnedCount<2));if(!studyPool.length)return alert("出題できる問題がありません。問題や答えを追加するか、覚えた記録を確認してください。");document.getElementById("studyTitle").textContent=store().questionFiles[i].name;document.getElementById("kanjiAnswerArea").style.display=domain()==="漢字"?"block":"none";document.getElementById("typedAnswerArea").style.display=domain()==="漢字"?"none":"block";showOnly("studyScreen");if(domain()==="漢字")setupCanvas();nextStudyQuestion();}
+function nextStudyQuestion(){if(!studyPool.length){alert("学習対象の問題がなくなりました。");closeStudy();return;}studyCurrent=studyPool[Math.floor(Math.random()*studyPool.length)];studyShownAnswer=false;const p=document.getElementById("studyProblem");p.textContent=studyCurrent.problem||"";p.style.display=studyCurrent.problem?"block":"none";const img=document.getElementById("studyProblemImage");if(domain()!=="漢字"&&studyCurrent.image){img.src=studyCurrent.image;img.style.display="block";}else{img.removeAttribute("src");img.style.display="none";}document.getElementById("typedAnswer").value="";document.getElementById("answerFeedback").textContent="";document.getElementById("manualWrongFeedback").textContent="";const answer=document.getElementById("answerDisplay");answer.textContent="";answer.style.display="none";document.getElementById("studyProgress").textContent=store().learnedFeature?"覚えた回数："+(studyCurrent.learnedCount||0)+" / 2":"覚えた機能がオフです";document.getElementById("learnedButton").style.display=store().learnedFeature===false?"none":"block";document.getElementById("wrongButton").style.display=domain()==="漢字"?"block":"none";if(domain()==="漢字")clearCanvas();}
+function normalizeAnswer(v){return String(v||"").normalize("NFKC").replace(/[\s　]+/g,"").toLowerCase();}
+function checkAnswer(){if(!studyCurrent)return;const entered=document.getElementById("typedAnswer").value;const f=document.getElementById("answerFeedback");if(!entered.trim()){f.textContent="答えを入力してね。";f.className="answer-feedback incorrect";return;}if(normalizeAnswer(entered)===normalizeAnswer(studyCurrent.answer)){f.textContent="正解！";f.className="answer-feedback correct";}else{recordQuestionMistake(studyCurrent);f.textContent="不正解。間違えた内容をデータに保存しました。";f.className="answer-feedback incorrect";}}
+function recordWrongAnswer(){if(!studyCurrent)return;recordQuestionMistake(studyCurrent);document.getElementById("manualWrongFeedback").textContent="間違えた問題と回数をデータに保存しました。";}
+function showAnswer(){if(!studyCurrent)return;studyShownAnswer=true;const d=document.getElementById("answerDisplay");d.textContent=(domain()==="漢字"?"":"答え：")+studyCurrent.answer;d.style.display="block";}
+function setupCanvas(){canvas=document.getElementById("writingCanvas");ctx=canvas.getContext("2d");resizeCanvas();canvas.onpointerdown=startDrawing;canvas.onpointermove=draw;canvas.onpointerup=stopDrawing;canvas.onpointercancel=stopDrawing;canvas.onpointerleave=stopDrawing;}
+function resizeCanvas(){if(!canvas||!ctx)return;const rect=canvas.getBoundingClientRect();const old=canvas.toDataURL();const dpr=window.devicePixelRatio||1;canvas.width=Math.round(rect.width*dpr);canvas.height=Math.round(rect.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineWidth=5;ctx.lineCap="round";ctx.lineJoin="round";ctx.strokeStyle="#222";if(old!=="data:,"){const im=new Image();im.onload=()=>ctx.drawImage(im,0,0,rect.width,rect.height);im.src=old;}}
+function canvasPosition(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+function startDrawing(e){drawing=true;canvas.setPointerCapture?.(e.pointerId);const p=canvasPosition(e);lastX=p.x;lastY=p.y;ctx.beginPath();ctx.arc(lastX,lastY,2.5,0,Math.PI*2);ctx.fill();}
+function draw(e){if(!drawing)return;const p=canvasPosition(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;}
+function stopDrawing(){drawing=false;}
+function clearCanvas(){if(!canvas||!ctx)return;const r=canvas.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);}
+window.addEventListener("resize",()=>{if(canvas&&document.getElementById("studyScreen").style.display!=="none")resizeCanvas();});
+function markLearned(){if(!studyCurrent)return;if(!store().learnedFeature){nextStudyQuestion();return;}if(!studyShownAnswer)return alert("先に「答えを見る」を押してください。");studyCurrent.learnedCount=Math.min(2,(studyCurrent.learnedCount||0)+1);saveData();studyPool=store().questionFiles[currentQuestionIndex].questions.filter(q=>((q.problem||q.question||"").trim()!==""||(domain()!=="漢字"&&(q.image||"")!==""))&&(q.answer||"").trim()!==""&&(q.learnedCount||0)<2);updateDashboardStats();if(!studyPool.length){alert("すべての対象問題を2回覚えました！");closeStudy();return;}nextStudyQuestion();}
+function closeStudy(){showOnly("homeScreen");renderLists();}
+function updateDashboardStats(){
+  const label=document.getElementById("progressLabel"),count=document.getElementById("progressCount"),ring=document.getElementById("progressRing");
+  const groups=section==="all"?[{s:stores.漢字,filter:()=>true},{s:stores.歴史地理,filter:f=>true}]:[{s:store(),filter:inCurrent}];
+  const active=groups.filter(g=>g.s.learnedFeature!==false);
+  if(!active.length){label.textContent="覚えた機能";count.textContent="覚えた機能がオフです";ring.style.setProperty("--progress","0deg");return;}
+  const all=active.flatMap(g=>g.s.questionFiles.filter(g.filter).flatMap(f=>f.questions||[])).filter(q=>((q.problem||q.question||"").trim()!==""||(q.image||"")!=="")&&(q.answer||"").trim()!=="");
+  const learned=all.filter(q=>(q.learnedCount||0)>=2).length;
+  label.textContent="覚えた数";count.textContent=learned+" / "+all.length;ring.style.setProperty("--progress",(all.length?learned/all.length*360:0)+"deg");
+}
+function resetAllLearnedRecords(){const targets=section==="all"?[stores.漢字,stores.歴史地理]:[store()];if(!targets.some(s=>s.questionFiles.some(f=>f.questions.some(q=>(q.learnedCount||0)>0))))return alert("覚えた記録はありません。");if(!confirm("現在の表示対象の「覚えた」記録をすべて0回に戻しますか？"))return;targets.forEach(s=>{s.questionFiles.forEach(f=>f.questions.forEach(q=>q.learnedCount=0));});saveStore("漢字");saveStore("歴史地理");renderLists();alert("覚えた記録をリセットしました。");}
+function exportData(){
+ const data={appType:APP_TYPE,version:2,exportedAt:new Date().toISOString(),stores:{漢字:stores.漢字,歴史地理:stores.歴史地理}};
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="勉強アプリ_全教科バックアップ.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function importData(event){
+ const file=event.target.files[0];if(!file)return;const reader=new FileReader();
+ reader.onload=()=>{
+  try{
+   const obj=JSON.parse(reader.result);
+   if(obj.appType===APP_TYPE&&obj.stores&&obj.stores.漢字&&obj.stores.歴史地理){
+    if(!confirm("全教科（漢字・歴史・地理・理科A・理科B）のデータをバックアップ内容に置き換えますか？"))return;
+    for(const key of ["漢字","歴史地理"]){const d=obj.stores[key];if(!Array.isArray(d.dataFiles)||!Array.isArray(d.questionFiles))throw Error("invalid");d.learnedFeature=d.learnedFeature!==false;d.dataFiles.forEach(x=>{if(!Array.isArray(x.mistakes))x.mistakes=[];});d.questionFiles.forEach(f=>{if(!f.id)f.id=makeId();if(!Array.isArray(f.questions))f.questions=[];f.questions.forEach(q=>{if(!q.id)q.id=makeId();if(typeof q.learnedCount!=="number")q.learnedCount=0;if(!q.problem)q.problem=q.question||"";});});stores[key]=d;}
+    saveStore("漢字");saveStore("歴史地理");
+   }else{
+    let d=obj.appType===APP_TYPE&&obj.data?obj.data:obj;if(!Array.isArray(d.dataFiles)||!Array.isArray(d.questionFiles))throw Error("invalid");
+    if(!confirm("このバックアップを現在選択中の教科に読み込みますか？"))return;d.learnedFeature=d.learnedFeature!==false;d.dataFiles.forEach(x=>{if(!Array.isArray(x.mistakes))x.mistakes=[];});d.questionFiles.forEach(f=>{if(!f.id)f.id=makeId();if(!Array.isArray(f.questions))f.questions=[];f.questions.forEach(q=>{if(!q.id)q.id=makeId();if(typeof q.learnedCount!=="number")q.learnedCount=0;if(!q.problem)q.problem=q.question||"";});});stores[domain()]=d;saveData();
+   }
+   renderLists();alert("バックアップを読み込みました。");
+  }catch(e){alert("バックアップファイルを読み込めませんでした。ファイルの形式を確認してください。");}
+  finally{event.target.value="";}
+ };
+ reader.onerror=()=>{alert("読み込みに失敗しました。");event.target.value="";};reader.readAsText(file,"UTF-8");
+}
+function init(){setSection("all");}
+init();
+document.addEventListener("selectstart",e=>{if(e.target.closest&&e.target.closest("input,textarea,select,[contenteditable=true],canvas"))return;e.preventDefault();},{passive:false});
+if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
