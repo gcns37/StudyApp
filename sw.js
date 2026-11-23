@@ -1,4 +1,4 @@
-const CACHE_NAME = "unified-study-app-v9";
+const CACHE_NAME = "unified-study-app-v10";
 const CORE_ASSETS = [
   "./",
   "./index.html",
