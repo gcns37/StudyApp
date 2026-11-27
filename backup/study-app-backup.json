@@ -1,7 +1,7 @@
 {
   "appType": "unifiedStudyAppV1",
   "version": 2,
-  "exportedAt": "2026-11-26T10:12:32.290Z",
+  "exportedAt": "2026-11-27T09:25:49.780Z",
   "stores": {
     "漢字": {
       "dataFiles": [
@@ -42,7 +42,7 @@
         },
         {
           "id": "q_mwq8b7d4_u9xk0d",
-          "name": "準2級5回6回再試用の間違いデータ",
+          "name": "準2級5回6回再試の間違いデータ",
           "subject": "漢字",
           "linkedQuestionId": "q_mwobhres_96e92w",
           "mistakes": [
@@ -54,6 +54,64 @@
             {
               "questionId": "q_mwobjlzt_s9uly5",
               "kanji": "そうかつ",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "q_mwxid8yi_2j6k05",
+          "name": "準2級7回8回の間違いデータ",
+          "subject": "漢字",
+          "linkedQuestionId": "q_mwxid8yi_k9c0ov",
+          "mistakes": [
+            {
+              "questionId": "q_mwxnawnb_84ct0y",
+              "kanji": "けいこく",
+              "count": 2
+            },
+            {
+              "questionId": "q_mwxl9qgo_fx03xh",
+              "kanji": "りれき",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxmm1d4_1tti31",
+              "kanji": "ていたく",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxmlyoh_ftoib4",
+              "kanji": "むろとみさき",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxmlw2c_gjjy9a",
+              "kanji": "すうはい",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxm2g8g_cst3w5",
+              "kanji": "えんしょう",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxnb4p4_kfwjnr",
+              "kanji": "うずしお",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxl9y9i_bkasnt",
+              "kanji": "じゅんしょく",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxl9oft_6ds7to",
+              "kanji": "にそう",
+              "count": 1
+            },
+            {
+              "questionId": "q_mwxm2l2l_8zxq8n",
+              "kanji": "おんち",
               "count": 1
             }
           ]
@@ -2625,7 +2683,7 @@
         },
         {
           "id": "q_mwobhres_96e92w",
-          "name": "準2級5回6回再試用",
+          "name": "準2級5回6回再試",
           "subject": "漢字",
           "questions": [
             {
@@ -2785,6 +2843,645 @@
               "problem": "拙い",
               "question": "拙い",
               "answer": "つたない",
+              "image": "",
+              "learnedCount": 2
+            }
+          ]
+        },
+        {
+          "id": "q_mwxid8yi_k9c0ov",
+          "name": "準2級7回8回",
+          "subject": "漢字",
+          "questions": [
+            {
+              "id": "q_mwxl9fbm_5wrvqw",
+              "problem": "めんえき",
+              "question": "めんえき",
+              "answer": "免疫",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9gjz_4972pl",
+              "problem": "やくびょうがみ",
+              "question": "やくびょうがみ",
+              "answer": "疫病神",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9lkj_k5d59z",
+              "problem": "こうてい",
+              "question": "こうてい",
+              "answer": "肯定",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9mnw_jcyr3y",
+              "problem": "しゅこう",
+              "question": "しゅこう",
+              "answer": "首肯",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9oft_6ds7to",
+              "problem": "にそう",
+              "question": "にそう",
+              "answer": "尼僧",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9pq9_7tymed",
+              "problem": "あまでら",
+              "question": "あまでら",
+              "answer": "尼寺",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9qgo_fx03xh",
+              "problem": "りれき",
+              "question": "りれき",
+              "answer": "履歴",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9rje_5kk4rk",
+              "problem": "ぞうり",
+              "question": "ぞうり",
+              "answer": "草履",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9y9i_bkasnt",
+              "problem": "じゅんしょく",
+              "question": "じゅんしょく",
+              "answer": "殉職",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxl9z7v_slwrlc",
+              "problem": "じゅんなん",
+              "question": "じゅんなん",
+              "answer": "殉難",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxla0ab_8tmjhd",
+              "problem": "しょうじょう",
+              "question": "しょうじょう",
+              "answer": "症状",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm2g8g_cst3w5",
+              "problem": "えんしょう",
+              "question": "えんしょう",
+              "answer": "炎症",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm2het_82q7ut",
+              "problem": "えきり",
+              "question": "えきり",
+              "answer": "疫痢",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm2j0p_9ciipa",
+              "problem": "げり",
+              "question": "げり",
+              "answer": "下痢",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm2k08_l6dkxk",
+              "problem": "ぐち",
+              "question": "ぐち",
+              "answer": "愚痴",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm2l2l_8zxq8n",
+              "problem": "おんち",
+              "question": "おんち",
+              "answer": "音痴",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm2z8i_vk8d2l",
+              "problem": "ちゆ",
+              "question": "ちゆ",
+              "answer": "治癒",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm32yp_c3918g",
+              "problem": "ゆちゃく",
+              "question": "ゆちゃく",
+              "answer": "癒着",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm34dl_i9oukd",
+              "problem": "しょうぞう",
+              "question": "しょうぞう",
+              "answer": "肖像",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm35fs_m88vzy",
+              "problem": "ふしょう",
+              "question": "ふしょう",
+              "answer": "不肖",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm36bq_e5o2d1",
+              "problem": "はだみ",
+              "question": "はだみ",
+              "answer": "肌身",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm3711_jupayc",
+              "problem": "じはだ",
+              "question": "じはだ",
+              "answer": "地肌",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm385s_wjkl5c",
+              "problem": "したい",
+              "question": "したい",
+              "answer": "肢体",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm3976_wvktm0",
+              "problem": "せんたくし",
+              "question": "せんたくし",
+              "answer": "選択肢",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm39vu_ou3s98",
+              "problem": "こんちゅう",
+              "question": "こんちゅう",
+              "answer": "昆虫",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm3b0z_erk4tb",
+              "problem": "こんぶ",
+              "question": "こんぶ",
+              "answer": "昆布",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm3c9f_8koflc",
+              "problem": "しゅんぎょう",
+              "question": "しゅんぎょう",
+              "answer": "春暁",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxm3d7m_t4rxhm",
+              "problem": "つうぎょう",
+              "question": "つうぎょう",
+              "answer": "通暁",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmltl5_igasx5",
+              "problem": "ちん",
+              "question": "ちん",
+              "answer": "朕",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmlv3m_ecff8n",
+              "problem": "すうこう",
+              "question": "すうこう",
+              "answer": "崇高",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmlw2c_gjjy9a",
+              "problem": "すうはい",
+              "question": "すうはい",
+              "answer": "崇拝",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmlxrk_tlmeab",
+              "problem": "みさき",
+              "question": "みさき",
+              "answer": "岬",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmlyoh_ftoib4",
+              "problem": "むろとみさき",
+              "question": "むろとみさき",
+              "answer": "室戸岬",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmlzml_497su4",
+              "problem": "やくなん",
+              "question": "やくなん",
+              "answer": "厄難",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm0cy_uz1nff",
+              "problem": "さいやく",
+              "question": "さいやく",
+              "answer": "災厄",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm1d4_1tti31",
+              "problem": "ていたく",
+              "question": "ていたく",
+              "answer": "邸宅",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm234_bmm24f",
+              "problem": "かんてい",
+              "question": "かんてい",
+              "answer": "官邸",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm3l9_ta4r2w",
+              "problem": "じんだい",
+              "question": "じんだい",
+              "answer": "甚大",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm4dl_ale1pb",
+              "problem": "げきじん",
+              "question": "げきじん",
+              "answer": "激甚",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm5jr_m2f2w2",
+              "problem": "どうさつ",
+              "question": "どうさつ",
+              "answer": "洞察",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm70o_ddsi90",
+              "problem": "くうどう",
+              "question": "くうどう",
+              "answer": "空洞",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm8d0_ux342o",
+              "problem": "さばく",
+              "question": "さばく",
+              "answer": "砂漠",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmm9gt_if7nqy",
+              "problem": "ばくぜん",
+              "question": "ばくぜん",
+              "answer": "漠然",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmma5j_fmebgz",
+              "problem": "かじゅう",
+              "question": "かじゅう",
+              "answer": "果汁",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmmcpx_rkdomf",
+              "problem": "くじゅう",
+              "question": "くじゅう",
+              "answer": "苦汁",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmmeez_cqk15l",
+              "problem": "こうなん",
+              "question": "こうなん",
+              "answer": "江南",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmmffm_bi51kl",
+              "problem": "いりえ",
+              "question": "いりえ",
+              "answer": "入り江",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmmga7_jnczvv",
+              "problem": "でいど",
+              "question": "でいど",
+              "answer": "泥土",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxmmhlf_lcqjac",
+              "problem": "うんでい",
+              "question": "うんでい",
+              "answer": "雲泥",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn49jv_izxkys",
+              "problem": "しゃふつ",
+              "question": "しゃふつ",
+              "answer": "煮沸",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4aew_vw91zq",
+              "problem": "ふってん",
+              "question": "ふってん",
+              "answer": "沸点",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4bgs_62e8d6",
+              "problem": "すいほう",
+              "question": "すいほう",
+              "answer": "水泡",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4c8l_2bjoqg",
+              "problem": "きほう",
+              "question": "きほう",
+              "answer": "気泡",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4d0f_otio1h",
+              "problem": "こうずい",
+              "question": "こうずい",
+              "answer": "洪水",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4e47_v97xsw",
+              "problem": "こうおん",
+              "question": "こうおん",
+              "answer": "洪恩",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4eyw_3o1hio",
+              "problem": "せいじょう",
+              "question": "せいじょう",
+              "answer": "清浄",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4fze_trzi50",
+              "problem": "じょうか",
+              "question": "じょうか",
+              "answer": "浄化",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4gw6_25gn9w",
+              "problem": "つなみ",
+              "question": "つなみ",
+              "answer": "津波",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxn4hrn_2ne0e0",
+              "problem": "しんしん",
+              "question": "しんしん",
+              "answer": "津津",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnap3l_nha7fi",
+              "problem": "うらかぜ",
+              "question": "うらかぜ",
+              "answer": "浦風",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnareu_d3h79s",
+              "problem": "うちうら",
+              "question": "うちうら",
+              "answer": "内浦",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnaseu_fmz7ey",
+              "problem": "きょうがい",
+              "question": "きょうがい",
+              "answer": "境涯",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnau38_742pbs",
+              "problem": "しょうがい(生きる)",
+              "question": "しょうがい(生きる)",
+              "answer": "生涯",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnav3a_d3y2wo",
+              "problem": "こかつ",
+              "question": "こかつ",
+              "answer": "枯渇",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnavwg_ualgpw",
+              "problem": "かつぼう",
+              "question": "かつぼう",
+              "answer": "渇望",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnawnb_84ct0y",
+              "problem": "けいこく",
+              "question": "けいこく",
+              "answer": "渓谷",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnaxwd_q15b2v",
+              "problem": "けいりゅう",
+              "question": "けいりゅう",
+              "answer": "渓流",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnayve_u6yh2l",
+              "problem": "くじゅう(しぶ)",
+              "question": "くじゅう(しぶ)",
+              "answer": "苦渋",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnazkd_iqmx07",
+              "problem": "じゅうたい",
+              "question": "じゅうたい",
+              "answer": "渋滞",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb0dk_5mvwp6",
+              "problem": "しゅくじょ",
+              "question": "しゅくじょ",
+              "answer": "淑女",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb12s_zf98g5",
+              "problem": "ししゅく",
+              "question": "ししゅく",
+              "answer": "私淑",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb1nf_i73q4p",
+              "problem": "こうしょう",
+              "question": "こうしょう",
+              "answer": "交渉",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb291_akwjtp",
+              "problem": "しょうがい",
+              "question": "しょうがい",
+              "answer": "渉外",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb3bz_44i17u",
+              "problem": "りょうふう",
+              "question": "りょうふう",
+              "answer": "涼風",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb3yr_xlm9sh",
+              "problem": "こうりょう",
+              "question": "こうりょう",
+              "answer": "荒涼",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb4p4_kfwjnr",
+              "problem": "うずしお",
+              "question": "うずしお",
+              "answer": "渦潮",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb592_qqzcs7",
+              "problem": "かちゅう",
+              "question": "かちゅう",
+              "answer": "渦中",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb5qn_ik2ilc",
+              "problem": "かいこう",
+              "question": "かいこう",
+              "answer": "海溝",
+              "image": "",
+              "learnedCount": 2
+            },
+            {
+              "id": "q_mwxnb69n_fr8t4c",
+              "problem": "はいすいこう",
+              "question": "はいすいこう",
+              "answer": "排水溝",
               "image": "",
               "learnedCount": 2
             }
